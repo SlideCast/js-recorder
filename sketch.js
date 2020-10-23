@@ -2,7 +2,7 @@ let originalheight = 1;
 let originalwidth = 1;
 let init_time = (new Date()).getTime();
 let cur_time = (new Date()).getTime();
-let dff_time = (new Date()).getTime();
+let diff_time = (new Date()).getTime();
 var mouse = [];
 var keyboard = [];
 var record = false;
@@ -41,11 +41,13 @@ startrecording = async() => {
     record = record ? false : true;
     btn = document.getElementById('record');
     btn.innerHTML = record ? "Stop" : "Record";
-    init_time = (new Date()).getTime();
-    diff_time = (new Date()).getTime();
     if (record) {
+        console.log("start")
         recorder = await recordAudio();
         recorder.start();
+        console.log("started")
+        init_time = (new Date()).getTime();
+        diff_time = (new Date()).getTime();
         mouse = [];
         keyboard = [];
     }

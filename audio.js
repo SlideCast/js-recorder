@@ -8,7 +8,10 @@ const recordAudio = () =>
             audioChunks.push(event.data);
         });
 
-        const start = () => mediaRecorder.start();
+        const start = () => {
+            console.log('start')
+            mediaRecorder.start();
+        }
 
         const stop = () =>
             new Promise(resolve => {
